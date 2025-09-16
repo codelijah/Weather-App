@@ -12,13 +12,12 @@ const apiKey = 'bd86c14e60c463ac82be81960aaef1da';
 const apiUrl =
   'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
 
-async function checkWeather(city) {
-  const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
-
-  if (!response.ok) {
-    errorMessage.style.display = 'block';
-    weatherDisplay.style.display = 'none';
-  } else {
+if (!response.ok) {
+  errorMessage.style.display = 'block';
+  weatherDisplay.style.display = 'none';
+} else {
+  async function checkWeather(city) {
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
     let data = await response.json();
     //   console.log(data);
 
